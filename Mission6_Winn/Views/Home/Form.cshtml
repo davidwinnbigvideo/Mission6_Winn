@@ -1,0 +1,80 @@
+﻿@model Application
+@{
+    ViewData["Title"] = "Form";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+
+    <label asp-for="Category">Category</label>
+    <select asp-for="Category">
+        <option value="Action/Adventure">Action/Adventure</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Crime and Mystery">Crime and Mystery</option>
+        <option value="Death Game">Death Game</option>
+        <option value="Drama">Drama</option>
+        <option value="Family">Family</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Historical">Historical</option>
+        <option value="Horror/Suspense">Horror/Suspense</option>
+        <option value="Romance">Romance</option>
+        <option value="Satire">Satire</option>
+        <option value="Science Fiction">Science Fiction</option>
+        <option value="Speculative">Speculative</option>
+        <option value="Television">Television</option>
+        <option value="Thriller">Thriller</option>
+        <option value="Isekai">Isekai</option>
+        <option value="VHS">VHS</option>
+        <option value="Miscellaneous">Miscellaneous</option>
+    </select>
+    <br />
+    <br />
+
+    <label asp-for="Title">Title</label>
+    <input asp-for="Title" Required="true" />
+    <br />
+    <br />
+
+    <label asp-for="Year">Year</label>
+    <input asp-for="Year" Required="true" />
+    <br />
+    <br />
+
+    <label asp-for="Director">Director</label>
+    <input asp-for="Director" Required="true" />
+    <br />
+    <br />
+
+    <label asp-for="Rating">Rating</label>
+    <select asp-for="Rating">
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
+    </select>
+    <br />
+    <br />
+
+    <label asp-for="Edited">Edited</label>
+    <select asp-for="Edited">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+    </select>
+    <br />
+    <br />
+
+    <label asp-for="Lent_to">Lent to</label>
+    <input asp-for="Lent_to" />
+    <br />
+    <br />
+
+    <label asp-for="Notes">Notes</label>
+    <input asp-for="Notes" MaxLength="25" />
+    <br />
+    <br />
+
+    <button type="submit">Submit Form</button>
+    <br />
+    <br />
+
+</form>
