@@ -1,4 +1,4 @@
-﻿@model Application
+﻿@model Movie
 @{
     ViewData["Title"] = "Form";
 }
@@ -6,26 +6,15 @@
 
 <form method="post">
 
-    <label asp-for="Category">Category</label>
-    <select asp-for="Category">
-        <option value="Action/Adventure">Action/Adventure</option>
-        <option value="Comedy">Comedy</option>
-        <option value="Crime and Mystery">Crime and Mystery</option>
-        <option value="Death Game">Death Game</option>
-        <option value="Drama">Drama</option>
-        <option value="Family">Family</option>
-        <option value="Fantasy">Fantasy</option>
-        <option value="Historical">Historical</option>
-        <option value="Horror/Suspense">Horror/Suspense</option>
-        <option value="Romance">Romance</option>
-        <option value="Satire">Satire</option>
-        <option value="Science Fiction">Science Fiction</option>
-        <option value="Speculative">Speculative</option>
-        <option value="Television">Television</option>
-        <option value="Thriller">Thriller</option>
-        <option value="Isekai">Isekai</option>
-        <option value="VHS">VHS</option>
-        <option value="Miscellaneous">Miscellaneous</option>
+    <input type="hidden" asp-for="MovieId"/>
+
+    <label asp-for="CategoryId">Category</label>
+    <select asp-for="CategoryId">
+        <option value="">Select a Category</option>
+        @foreach (Category x in ViewBag.Categories)
+        {
+            <option value="@x.CategoryId">@x.CategoryName</option>
+        }
     </select>
     <br />
     <br />
@@ -36,7 +25,7 @@
     <br />
 
     <label asp-for="Year">Year</label>
-    <input asp-for="Year" Required="true" />
+    <input asp-for="Year" Required="true" type="number" min="1888" max="@DateTime.Now.Year" />
     <br />
     <br />
 
@@ -63,13 +52,20 @@
     <br />
     <br />
 
-    <label asp-for="Lent_to">Lent to</label>
-    <input asp-for="Lent_to" />
+    <label asp-for="LentTo">Lent to</label>
+    <input asp-for="LentTo" />
     <br />
     <br />
 
     <label asp-for="Notes">Notes</label>
     <input asp-for="Notes" MaxLength="25" />
+    <br />
+    <br />
+
+    <label asp-for="CopiedToPlex">Copied to Plex</label>
+    <input type="radio" asp-for="CopiedToPlex" value="1" /> Yes
+    <input type="radio" asp-for="CopiedToPlex" value="0" /> No
+
     <br />
     <br />
 
